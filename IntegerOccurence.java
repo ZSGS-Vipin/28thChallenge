@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class IntegerOccurence {
@@ -8,9 +7,9 @@ public class IntegerOccurence {
         int occurence = 2;
         occurenceFun(len,array,occurence);
     }
+
     public static void occurenceFun(int len, int[] array, int occurence)
     {
-        ArrayList<Integer> list = new ArrayList<>();
         int count = 0;
         HashMap<Integer,Integer> hashMap = new HashMap<>();
         for(int index = 0; index < len;index++)
@@ -22,15 +21,12 @@ public class IntegerOccurence {
             else
             {
                 hashMap.put(array[index],hashMap.getOrDefault(array[index],0)+1);
+                if(hashMap.get(array[index])==occurence)
+                {
+                    System.out.println(array[index]);
+                }
             }
         }
-        for(int check : hashMap.keySet())
-        {
-            if(hashMap.get(check)==occurence)
-            {
-                list.add(check);
-            }
-        }
-        System.out.println(list);
+
     }
 }
